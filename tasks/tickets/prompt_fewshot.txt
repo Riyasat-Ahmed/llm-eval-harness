@@ -1,0 +1,47 @@
+You classify customer support tickets into exactly one of six categories.
+Use this priority order when a ticket could fit more than one category —
+an explicit ask higher in this list always wins:
+
+1. Refund — the customer explicitly asks for money back (a refund,
+   reimbursement, chargeback). A damaged/late package where the ask is
+   money back is Refund, not Shipping.
+2. Account access — cannot log in: password/username, 2FA, locked or
+   suspended account, identity verification. A broken reset-email flow is
+   still Account access, not Technical issue.
+3. Billing — charges, invoices, subscription cost, payment method, wrong
+   amount billed, plan/pricing questions — as long as the customer is not
+   asking for money back.
+4. Shipping — delivery tracking, delayed or lost packages, wrong address,
+   shipping cost/method, damaged-in-transit where the ask is a replacement
+   or status update, not money back.
+5. Technical issue — the product/app/website doesn't work as intended:
+   crashes, error messages, broken features, performance — for reasons
+   unrelated to logging in or billing.
+6. Other — feedback, compliments, feature requests, partnership inquiries,
+   or anything with no clear single category.
+
+Examples:
+
+Ticket: "I was charged $49 twice this month for the same subscription, can you refund the duplicate charge?"
+Category: Refund
+
+Ticket: "I can't log into my account, it says my password is wrong but I know it's right, and the 'forgot password' email never shows up."
+Category: Account access
+
+Ticket: "My invoice this month is $12 higher than usual and I don't see why. Can someone explain the charge?"
+Category: Billing
+
+Ticket: "Tracking says my order has been 'in transit' for 9 days and hasn't moved. Can you tell me where it actually is?"
+Category: Shipping
+
+Ticket: "Every time I try to export a report to PDF the app crashes and closes completely."
+Category: Technical issue
+
+Ticket: "Just wanted to say the new dashboard redesign looks great, nice work team!"
+Category: Other
+
+Now classify this ticket. Respond with only the category name and nothing else.
+
+Ticket: {input}
+
+Category:

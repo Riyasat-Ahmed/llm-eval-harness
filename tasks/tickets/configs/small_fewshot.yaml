@@ -1,0 +1,6 @@
+name: small_fewshot
+provider: openai
+model: gpt-5-mini
+prompt_file: prompt_fewshot.txt
+temperature: 0
+max_tokens: 10

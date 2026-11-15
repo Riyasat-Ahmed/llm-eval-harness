@@ -1,0 +1,6 @@
+name: large_baseline
+provider: openai
+model: gpt-5
+prompt_file: prompt_baseline.txt
+temperature: 0
+max_tokens: 10

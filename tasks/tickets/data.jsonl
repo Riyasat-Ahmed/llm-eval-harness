@@ -1,0 +1,100 @@
+{"id": "t001", "input": "I was charged $49.99 twice this month for my subscription. My statement shows two identical charges on the same day. Can someone look into this?", "expected": "Billing"}
+{"id": "t002", "input": "cant log in. keeps saying wrong password but i havent changed it in months", "expected": "Account access"}
+{"id": "t003", "input": "Hi, my order #58213 was supposed to arrive last Tuesday and the tracking page still just says 'label created.' Where is it?", "expected": "Shipping"}
+{"id": "t004", "input": "The export-to-CSV button on the reports page just spins forever and never downloads anything. Tried on Chrome and Firefox, same result.", "expected": "Technical issue"}
+{"id": "t005", "input": "I cancelled my plan two weeks ago but I still want the last payment refunded since I never used the service after cancelling.", "expected": "Refund"}
+{"id": "t006", "input": "Just wanted to drop a note that your support rep Dana was incredibly helpful yesterday. Really appreciated the patience.", "expected": "Other"}
+{"id": "t007", "input": "Why does my invoice say I'm on the Pro plan when I downgraded to Basic three months ago? The price difference is adding up.", "expected": "Billing"}
+{"id": "t008", "input": "2FA codes from the authenticator app aren't working anymore, I think my phone's clock drifted. I'm completely locked out.", "expected": "Account access"}
+{"id": "t009", "input": "Package arrived with the box crushed and the item inside cracked. I'd like a replacement sent out, not a refund, since I still need it.", "expected": "Shipping"}
+{"id": "t010", "input": "Every time I try to upload a profile photo larger than 2MB the app just freezes and I have to force-close it.", "expected": "Technical issue"}
+{"id": "t011", "input": "This product doesn't do what the listing said it would. I want my money back, full refund please, order #90012.", "expected": "Refund"}
+{"id": "t012", "input": "Do you offer a student discount? I'm currently enrolled full-time and would love to know if there's a reduced rate.", "expected": "Other"}
+{"id": "t013", "input": "I set up autopay and it still declined my card and now I have a late fee. My card is definitely not expired or over limit.", "expected": "Billing"}
+{"id": "t014", "input": "forgot my username, only remember the account email was something with a zero in it. how do i recover the account", "expected": "Account access"}
+{"id": "t015", "input": "Delivery driver left my package at the wrong building, apartment 4B instead of 4D. Can you help me figure out where it actually went?", "expected": "Shipping"}
+{"id": "t016", "input": "The search bar on the dashboard returns zero results for literally everything now, even things I know exist in my account.", "expected": "Technical issue"}
+{"id": "t017", "input": "We were double billed because of a known glitch last week, I saw the announcement. Please refund the extra charge to my card.", "expected": "Billing"}
+{"id": "t018", "input": "I'd like to partner with your company for a co-marketing campaign targeting small business owners. Who should I reach out to?", "expected": "Other"}
+{"id": "t019", "input": "My account got suspended and the email just says 'suspicious activity' with no details. I need access back to run payroll today.", "expected": "Account access"}
+{"id": "t020", "input": "Three weeks and the item still shows 'processing' in your system, no carrier tracking number has ever been generated.", "expected": "Shipping"}
+{"id": "t021", "input": "The mobile app crashes immediately on launch since the last update, I've reinstalled twice and it still happens.", "expected": "Technical issue"}
+{"id": "t022", "input": "I was never told about the annual commitment when I signed up and now I'm being charged for a full year. I want out and a refund.", "expected": "Refund"}
+{"id": "t023", "input": "Could you add a dark mode toggle? Staring at the white dashboard at night is rough on the eyes.", "expected": "Other"}
+{"id": "t024", "input": "I keep getting billed in a different currency than I signed up with and the exchange is costing me extra every month.", "expected": "Billing"}
+{"id": "t025", "input": "Reset password link in the email goes to a 404 page. Tried requesting it five times, same broken link every time.", "expected": "Account access"}
+{"id": "t026", "input": "shipping cost at checkout says $45 for a small envelope, that seems way off, can you check the rate for my zip code", "expected": "Shipping"}
+{"id": "t027", "input": "when i click save on the settings page nothing happens, no error, no confirmation, changes just don't stick", "expected": "Technical issue"}
+{"id": "t028", "input": "I returned the item three weeks ago per your instructions and your warehouse confirmed receipt but I still haven't gotten my refund.", "expected": "Refund"}
+{"id": "t029", "input": "This is unrelated to support but do you have any open roles on the engineering team? Your blog post on the new architecture was great.", "expected": "Other"}
+{"id": "t030", "input": "My card on file expired and I need to update it before the next billing cycle, but the 'update payment method' button does nothing.", "expected": "Billing"}
+{"id": "t031", "input": "I verified my identity with a photo ID last week like support asked, and I'm STILL locked out four days later. This is unacceptable.", "expected": "Account access"}
+{"id": "t032", "input": "Tracking number you gave me doesn't exist on the carrier's website at all, says 'not found.' Did it even ship?", "expected": "Shipping"}
+{"id": "t033", "input": "Notifications stopped coming through entirely, haven't gotten a single alert in four days even though the setting is on.", "expected": "Technical issue"}
+{"id": "t034", "input": "Ordered the wrong size by mistake, already returned it in the original packaging, just want the refund processed please.", "expected": "Refund"}
+{"id": "t035", "input": "honestly just wanted to say thanks, switching to your platform saved my team a ton of hours this quarter", "expected": "Other"}
+{"id": "t036", "input": "Why is there a $3.50 'processing fee' on my receipt that wasn't shown anywhere at checkout? Feels sketchy.", "expected": "Billing"}
+{"id": "t037", "input": "My two-factor phone number is old, I switched carriers and never updated it, now I can't receive the SMS code to log in.", "expected": "Account access"}
+{"id": "t038", "input": "Order shows 'delivered' but there is nothing on my porch, checked with neighbors too. Where is my package?", "expected": "Shipping"}
+{"id": "t039", "input": "The calendar view just shows blank squares for every day this week, no events at all even though I have a dozen scheduled.", "expected": "Technical issue"}
+{"id": "t040", "input": "I was charged for a renewal I explicitly cancelled before the deadline, I have the cancellation confirmation email, please refund it.", "expected": "Refund"}
+{"id": "t041", "input": "Not a complaint, just curious if there's a public roadmap somewhere so I know what features are coming this year.", "expected": "Other"}
+{"id": "t042", "input": "Got hit with an overage fee I didn't expect, nothing in the dashboard warned me I was close to the usage limit.", "expected": "Billing"}
+{"id": "t043", "input": "account says 'temporarily disabled pending review' for the fifth day straight, nobody has emailed me any update at all", "expected": "Account access"}
+{"id": "t044", "input": "I paid for express shipping and it's now been six business days, that completely defeats the point of paying extra.", "expected": "Shipping"}
+{"id": "t045", "input": "Clicking 'export to PDF' downloads a file but it's always 0 bytes and won't open in anything.", "expected": "Technical issue"}
+{"id": "t046", "input": "The item I received is a completely different color than what I ordered. I don't want a replacement, just refund me.", "expected": "Refund"}
+{"id": "t047", "input": "Quick question, is there an affiliate program? I run a newsletter and a few readers have asked about your tool.", "expected": "Other"}
+{"id": "t048", "input": "My receipt lists a 'service fee' that's higher than it's ever been before with zero explanation of what changed.", "expected": "Billing"}
+{"id": "t049", "input": "I keep getting 'incorrect password' even after resetting it twice in the last hour, each time I set a brand new one.", "expected": "Account access"}
+{"id": "t050", "input": "Can you confirm the estimated delivery window for orders shipping to rural addresses? Just planning ahead, nothing urgent.", "expected": "Shipping"}
+{"id": "t051", "input": "The chart on the analytics page shows numbers that don't match the raw data export at all, something is clearly broken.", "expected": "Technical issue"}
+{"id": "t052", "input": "I was double charged by both my bank and your system for the same order, I have screenshots of both charges, need a refund on the duplicate.", "expected": "Refund"}
+{"id": "t053", "input": "Love the new onboarding flow, way smoother than before. No issue, just wanted to pass along positive feedback.", "expected": "Other"}
+{"id": "t054", "input": "Trying to switch from monthly to annual billing but the option isn't showing up anywhere in my account settings.", "expected": "Billing"}
+{"id": "t055", "input": "My spouse and I share an account and now neither of us can log in, it says the account was flagged for 'unusual login pattern.'", "expected": "Account access"}
+{"id": "t056", "input": "the box arrived fine but it's missing one of the two items that were supposed to be in the same shipment, where's the rest", "expected": "Shipping"}
+{"id": "t057", "input": "App keeps logging me out every few minutes even with 'remember me' checked, started happening this week out of nowhere.", "expected": "Technical issue"}
+{"id": "t058", "input": "I was charged the wrong plan tier at signup due to a promo code glitch, and I'd like the difference refunded to my account.", "expected": "Billing", "notes": "Ambiguous: asks for a refund of a difference, but the root issue and framing is a billing error (wrong tier charged), not a straightforward money-back request — labelled Billing per guideline priority since this reads as a billing dispute rather than a refund ask on a completed purchase."}
+{"id": "t059", "input": "Never received any confirmation email after signing up, can't tell if my account even exists or if the signup actually went through.", "expected": "Account access"}
+{"id": "t060", "input": "This product completely failed to do what I needed and support couldn't fix it after two calls. I'm done, refund the whole order.", "expected": "Refund"}
+{"id": "t061", "input": "Saw your company mentioned in a podcast episode last week, congrats, just wanted to say that was a cool moment to notice.", "expected": "Other"}
+{"id": "t062", "input": "Why does the pricing page show $29/mo but my actual bill is $34? Is there a hidden fee I'm missing somewhere?", "expected": "Billing"}
+{"id": "t063", "input": "Locked out after entering my password wrong three times, the unlock email never arrived even after checking spam folder twice.", "expected": "Account access"}
+{"id": "t064", "input": "Carrier's site shows the package was returned to sender but I never refused delivery or moved, what happened and can it be resent?", "expected": "Shipping"}
+{"id": "t065", "input": "Video playback stutters and freezes constantly on the training module, my internet is fine, tested other sites at the same time.", "expected": "Technical issue"}
+{"id": "t066", "input": "I'd like to cancel my subscription entirely and get prorated money back for the unused portion of this month.", "expected": "Refund"}
+{"id": "t067", "input": "Does your API support webhooks for order status changes? Looking to build an internal integration, not reporting a bug.", "expected": "Other"}
+{"id": "t068", "input": "My annual plan renewed at a higher price than what I originally signed up for, nobody mentioned a price increase.", "expected": "Billing"}
+{"id": "t069", "input": "trying to delete my old account and create a new one with a different email but it says that email is 'already in use' when it isnt", "expected": "Account access"}
+{"id": "t070", "input": "Shipment has been sitting at the same sorting facility for 11 days according to tracking, is it actually lost?", "expected": "Shipping"}
+{"id": "t071", "input": "The in-app chat widget just shows a spinning loader forever and I can never actually reach a live agent through it.", "expected": "Technical issue"}
+{"id": "t072", "input": "Got the item, it works fine, but it's just not what I thought I was buying based on the photos. Can I send it back for a refund?", "expected": "Refund"}
+{"id": "t073", "input": "Not sure if this is the right inbox, but I run a review blog and would love to request a demo account for an article I'm writing.", "expected": "Other"}
+{"id": "t074", "input": "I think I'm being charged for two separate subscriptions under the same email by accident, can someone check my account?", "expected": "Billing"}
+{"id": "t075", "input": "Security question answers aren't being accepted even though I'm 100% sure they're correct, tried both possible spellings too.", "expected": "Account access"}
+{"id": "t076", "input": "international order has been stuck in customs for two weeks per the tracking page, is there anything you all can do from your end", "expected": "Shipping"}
+{"id": "t077", "input": "The drag-and-drop file uploader just doesn't register drops anymore, I have to use the fallback browse button every single time.", "expected": "Technical issue"}
+{"id": "t078", "input": "Billing cycle charged me a day early and it overdrafted my account before my paycheck hit. I need that refunded immediately.", "expected": "Refund"}
+{"id": "t079", "input": "What's the maximum file size your platform supports for uploads? Planning a big import and want to check before I start.", "expected": "Other"}
+{"id": "t080", "input": "My coupon code worked at checkout but the discount never actually applied to the final charge on my card.", "expected": "Billing"}
+{"id": "t081", "input": "Getting an 'account locked for security reasons' banner with no way to appeal or contact anyone through the app itself.", "expected": "Account access"}
+{"id": "t082", "input": "Received someone else's order in my package, completely different item and a different name on the packing slip inside.", "expected": "Shipping"}
+{"id": "t083", "input": "Dashboard widgets keep resetting to default layout every time I refresh the page, really annoying since I customize it daily.", "expected": "Technical issue"}
+{"id": "t084", "input": "I was auto-enrolled into a paid tier after my free trial without any warning email, I want that charge reversed.", "expected": "Refund"}
+{"id": "t085", "input": "Any chance you'll support languages besides English in the next release? Just curious about the roadmap, not urgent at all.", "expected": "Other"}
+{"id": "t086", "input": "tax amount on my invoice looks way higher than my state's actual rate, can someone double check how that's calculated", "expected": "Billing"}
+{"id": "t087", "input": "My account shows as 'banned' with zero explanation and I never violated any terms I'm aware of, please review this.", "expected": "Account access"}
+{"id": "t088", "input": "Order split into two shipments without me asking for that, one arrived and the other has no tracking info at all.", "expected": "Shipping"}
+{"id": "t089", "input": "Dark mode makes half the text invisible, white text on a white card background on the billing settings page specifically.", "expected": "Technical issue"}
+{"id": "t090", "input": "I was quoted one price on the phone with your sales team but charged a different, higher amount. Please refund the difference.", "expected": "Refund"}
+{"id": "t091", "input": "Just leaving some honest feedback: the onboarding emails come way too frequently, five in the first two days felt like a lot.", "expected": "Other"}
+{"id": "t092", "input": "proration math on my upgrade seems off, I upgraded mid cycle and got charged almost the full new price instead of a prorated amount", "expected": "Billing"}
+{"id": "t093", "input": "Email says my password was changed but I never changed it, I think someone else has access to my account right now.", "expected": "Account access"}
+{"id": "t094", "input": "Package weight shown on the shipping label is wrong, way heavier than the actual item, does that affect delivery somehow?", "expected": "Shipping"}
+{"id": "t095", "input": "The bulk-edit feature only applies changes to the first row no matter how many rows I select, every single time.", "expected": "Technical issue"}
+{"id": "t096", "input": "I no longer want the service, please cancel immediately and refund the most recent payment since I haven't logged in all month.", "expected": "Refund"}
+{"id": "t097", "input": "Is customer support available on weekends? Not an issue right now, just want to know the hours for future reference.", "expected": "Other"}
+{"id": "t098", "input": "Got hit with a currency conversion fee that wasn't disclosed anywhere during signup or checkout, feels like it should've been.", "expected": "Billing"}
+{"id": "t099", "input": "I can log in fine on desktop but the mobile app rejects my password every time, same password, same account.", "expected": "Account access"}
+{"id": "t100", "input": "honestly not sure where this goes, the item is fine, the price is fine, I just think your packaging is excessive for such a small product", "expected": "Other", "notes": "Ambiguous: a mild complaint with no actionable billing/shipping/refund ask and no single clear category — intended as a genuine Other case to avoid an all-too-easy dataset."}

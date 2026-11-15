@@ -1,0 +1,6 @@
+name: small_baseline
+provider: openai
+model: gpt-5-mini
+prompt_file: prompt_baseline.txt
+temperature: 0
+max_tokens: 10

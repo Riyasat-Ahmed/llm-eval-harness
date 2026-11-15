@@ -1,0 +1,12 @@
+# Optional 4th configuration: zero-cost local inference via Ollama.
+# Not auto-discovered (configs/optional/ isn't matched by the default
+# `configs/*.yaml` glob) because it needs a local Ollama server running with
+# the model pulled (`ollama pull llama3.1`). To include it in a run, either
+# copy this file into ../ or run:
+#   evalh run --task tickets --configs "**/*.yaml"
+name: local_ollama
+provider: ollama
+model: llama3.1
+prompt_file: prompt_baseline.txt
+temperature: 0
+max_tokens: 10

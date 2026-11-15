@@ -1,0 +1,7 @@
+Classify the following customer support ticket into exactly one of these six categories: Billing, Technical issue, Account access, Shipping, Refund, Other.
+
+Respond with only the category name and nothing else.
+
+Ticket: {input}
+
+Category:
