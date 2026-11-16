@@ -4,9 +4,15 @@ __pycache__/
 .env
 *.db
 *.db-journal
+# Exception: results.db is intentionally committed as a demo data snapshot
+# for the publicly hosted dashboard (Streamlit Community Cloud has no access
+# to local runs). Local dev will show it as modified after every real run --
+# only commit it again when you want to update the public demo's data.
+!/results.db
 .ruff_cache/
 .pytest_cache/
 dist/
 build/
 *.egg-info/
 .DS_Store
+.claude/

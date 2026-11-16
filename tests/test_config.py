@@ -6,7 +6,10 @@ from evalh.config import ConfigError, config_hash, load_configs
 def test_loads_all_launch_configs():
     specs = load_configs("tickets")
     names = {s.name for s in specs}
-    assert names == {"large_baseline", "small_baseline", "small_fewshot"}
+    assert names == {
+        "large_baseline", "small_baseline", "small_fewshot",
+        "anthropic_large_baseline", "anthropic_small_baseline", "anthropic_small_fewshot",
+    }
 
 
 def test_configs_have_distinct_hashes():

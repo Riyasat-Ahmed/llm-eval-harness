@@ -11,6 +11,13 @@ openai:
     input_per_1m: 0.25
     output_per_1m: 2.00
 
-# Add an anthropic: section here (same shape) before using an Anthropic config —
-# intentionally left out because current per-model prices weren't verifiable
-# against an authoritative source when this file was written.
+# Base (non-cached) input/output rates from https://platform.claude.com/docs/en/about-claude/pricing,
+# checked 2026-11-15. Prompt caching isn't used by this harness, so cache
+# write/read rates aren't tracked here.
+anthropic:
+  claude-opus-5:
+    input_per_1m: 5.00
+    output_per_1m: 25.00
+  claude-haiku-4-5-20251001:
+    input_per_1m: 1.00
+    output_per_1m: 5.00

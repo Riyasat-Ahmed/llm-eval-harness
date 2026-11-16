@@ -20,7 +20,7 @@ TASKS = ["tickets"]  # add more task names here as tasks/<task>/ is added
 
 @st.cache_resource
 def get_conn():
-    return store.connect()
+    return store.connect(check_same_thread=False)
 
 
 def list_runs(conn, task: str) -> list[str]:

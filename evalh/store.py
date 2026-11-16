@@ -50,8 +50,11 @@ CREATE TABLE IF NOT EXISTS cache (
 """
 
 
-def connect(db_path: Path = DB_PATH) -> sqlite3.Connection:
-    conn = sqlite3.connect(db_path)
+def connect(db_path: Path = DB_PATH, *, check_same_thread: bool = True) -> sqlite3.Connection:
+    """check_same_thread=False is for callers (like the Streamlit dashboard)
+    that cache a single connection and may touch it from more than one
+    thread across reruns; the CLI/runner only ever use one thread."""
+    conn = sqlite3.connect(db_path, check_same_thread=check_same_thread)
     conn.executescript(_SCHEMA)
     return conn
 

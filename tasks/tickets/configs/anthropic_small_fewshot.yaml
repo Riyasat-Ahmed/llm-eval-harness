@@ -1,0 +1,6 @@
+name: anthropic_small_fewshot
+provider: anthropic
+model: claude-haiku-4-5-20251001
+prompt_file: prompt_fewshot.txt
+temperature: 0
+max_tokens: 10

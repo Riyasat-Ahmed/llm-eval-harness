@@ -1,0 +1,6 @@
+name: anthropic_large_baseline
+provider: anthropic
+model: claude-opus-5
+prompt_file: prompt_baseline.txt
+temperature: 0
+max_tokens: 10

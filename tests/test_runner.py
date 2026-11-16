@@ -89,6 +89,36 @@ def test_run_one_provider_failure_is_recorded_not_raised(conn, spec, monkeypatch
     assert row.error is not None
 
 
+def test_failed_call_is_not_cached_so_a_later_run_retries_it(conn, spec, monkeypatch):
+    """A failed call (bad code, transient outage, ...) must not be cached --
+    otherwise fixing the bug or waiting out the outage can never help, since
+    every future run would just replay the frozen failure forever."""
+    calls = {"n": 0}
+
+    class FailsOnceThenSucceeds:
+        async def complete(self, **kwargs):
+            calls["n"] += 1
+            if calls["n"] == 1:
+                raise RuntimeError("simulated transient failure")
+            return ProviderResponse(text="Other", tokens_in=1, tokens_out=1, latency_ms=1.0)
+
+    provider = FailsOnceThenSucceeds()
+    monkeypatch.setattr(runner, "get_provider", lambda name: provider)
+    monkeypatch.setattr(runner, "_call_with_retry", _fail_fast)
+
+    example = Example(id="e4", input="anything", expected="Other")
+    sem = asyncio.Semaphore(1)
+    kwargs = dict(conn=conn, task="fake", spec=spec, example=example, semaphore=sem)
+
+    first = asyncio.run(runner.run_one(run_id="r1", **kwargs))
+    assert first.error is not None
+
+    second = asyncio.run(runner.run_one(run_id="r2", **kwargs))
+    assert second.error is None
+    assert second.correct is True
+    assert calls["n"] == 2  # second run really called the provider, didn't replay a cached failure
+
+
 async def _fail_fast(provider, **kwargs):
     # Skip tenacity's real backoff/retry delay in this test.
     return await provider.complete(**kwargs)

@@ -69,13 +69,18 @@ async def run_one(
             except Exception as e:
                 response = ProviderResponse(text="", tokens_in=0, tokens_out=0, latency_ms=0.0)
                 error = str(e)
-        store.save_cache(
-            conn,
-            config_hash=chash,
-            example_id=example.id,
-            response=response.model_copy(update={"error": error}),
-            created_at=datetime.now(UTC).isoformat(),
-        )
+        if error is None:
+            # Only successful calls are cached. A failed call (after 3 retries)
+            # might be a transient outage or a bug that gets fixed before the
+            # next run; caching it would "freeze" the failure in forever and
+            # defeat the point of retrying on the next invocation.
+            store.save_cache(
+                conn,
+                config_hash=chash,
+                example_id=example.id,
+                response=response,
+                created_at=datetime.now(UTC).isoformat(),
+            )
 
     parsed = parse_label(response.text) if error is None else None
     correct = exact_match(parsed, example.expected) if error is None else False

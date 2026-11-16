@@ -15,21 +15,23 @@ by side.
 
 ## Results
 
-*Run `evalh run --task tickets` with your own API key, then `evalh report
---task tickets`, and paste the table here. Placeholder below shows the shape
-of the output — these are not real numbers.*
+Real run on the 100-ticket dataset (2026-11-16). OpenAI configs aren't run
+yet (no key configured on this machine) — Anthropic and local Ollama are:
 
 | Config | Accuracy | $ / 1,000 calls | Median latency | p95 latency |
 |---|---|---|---|---|
-| `large_baseline` | — | — | — | — |
-| `small_baseline` | — | — | — | — |
-| `small_fewshot` | — | — | — | — |
+| `anthropic_large_baseline` (Opus) | 92.0% | $0.7104 | 706ms | 1335ms |
+| `anthropic_small_baseline` (Haiku) | 91.0% | $0.1098 | 422ms | 628ms |
+| `anthropic_small_fewshot` (Haiku + few-shot) | **93.0%** | $0.5800 | 461ms | 581ms |
+| `local_ollama` (llama3.1 8B, $0) | 88.0% | $0.0000 | 504ms | 631ms |
+| `local_ollama_small` (llama3.2 1B, $0) | 47.0% | $0.0000 | 107ms | 132ms |
 
-**Key finding:** *(fill in after a real run, e.g. "small_fewshot matches
-large_baseline's accuracy within 2 points at roughly 1/5 the cost.")*
+**Key finding:** the cheap model with a better prompt beats the expensive
+model with a basic one — `anthropic_small_fewshot` hits 93.0% accuracy,
+*higher* than the much pricier Opus baseline (92.0%), while costing about
+18% less per call. Prompt quality mattered more than model size here.
 
 ![dashboard screenshot](docs/dashboard-screenshot.png)
-*(add a screenshot after your first run — see "Dashboard" below)*
 
 ## Quickstart
 
@@ -39,9 +41,10 @@ cd "LLM Comparison"
 uv sync --extra dev --extra dashboard
 
 cp .env.example .env
-# edit .env and add OPENAI_API_KEY (the 3 launch configs all use OpenAI)
+# edit .env and add OPENAI_API_KEY and/or ANTHROPIC_API_KEY
+# (only configs for providers whose key is set will succeed)
 
-uv run evalh run --task tickets      # ~100 examples x 3 configs, < $1, < 5 min uncached
+uv run evalh run --task tickets      # ~100 examples x 6 configs, < $2, < 10 min uncached
 uv run evalh report --task tickets   # re-prints the summary table for the latest run
 uv run evalh failures --task tickets --config small_baseline
 ```
@@ -49,6 +52,14 @@ uv run evalh failures --task tickets --config small_baseline
 Re-running `evalh run` reuses the cache (keyed on config + example) and costs
 $0 and takes under 10 seconds, as long as the dataset and configs haven't
 changed.
+
+**Each `evalh run` invocation gets its own `run_id`, and the dashboard's
+comparison table only shows configs from one `run_id` at a time.** To compare
+N configs side by side, run them all in a single command — pass a glob that
+matches all of them (e.g. `--configs "*.yaml"` or `--configs "local_ollama*.yaml"`)
+rather than invoking `evalh run` once per config. Since results are cached
+per `(config, example)` regardless of run_id, re-running configs you've
+already evaluated together costs nothing.
 
 ## Dashboard
 
@@ -78,15 +89,22 @@ accuracy for every config (see the PRD's risk section).
 | `large_baseline` | OpenAI `gpt-5` | baseline |
 | `small_baseline` | OpenAI `gpt-5-mini` | baseline |
 | `small_fewshot` | OpenAI `gpt-5-mini` | few-shot + label definitions |
-| `local_ollama` (optional) | Ollama `llama3.1` | baseline |
+| `anthropic_large_baseline` | Anthropic `claude-opus-5` | baseline |
+| `anthropic_small_baseline` | Anthropic `claude-haiku-4-5-20251001` | baseline |
+| `anthropic_small_fewshot` | Anthropic `claude-haiku-4-5-20251001` | few-shot + label definitions |
+| `local_ollama`, `local_ollama_small` (optional) | Ollama `llama3.1`, `llama3.2:1b` | baseline |
 
-Prices live in one file, [`prices.yaml`](prices.yaml), checked against public
-pricing pages on **2026-11-15** — verify before trusting cost figures for a
-real decision, since provider prices change without notice. The optional
-Ollama config costs $0 but needs a local server running (`ollama pull
-llama3.1`); it isn't auto-discovered by the default config glob, see
-[`tasks/tickets/configs/optional/local_ollama.yaml`](tasks/tickets/configs/optional/local_ollama.yaml)
-for how to include it.
+All six cloud configs run by default (`evalh run --task tickets`); you only
+need an API key for the provider(s) you actually want to run — a config
+whose key is missing fails every call but doesn't stop the others (see
+Reliability below). Prices live in one file, [`prices.yaml`](prices.yaml),
+checked against each provider's official pricing docs on **2026-11-15** —
+verify before trusting cost figures for a real decision, since prices change
+without notice. The optional Ollama configs cost $0 but need a local server
+running with the model pulled (`ollama pull llama3.1`); they aren't
+auto-discovered by the default config glob, see
+[`tasks/tickets/configs/optional/`](tasks/tickets/configs/optional/) for how
+to include them.
 
 ## Adding a task or a config
 
@@ -125,8 +143,11 @@ tests/
 
 **Reproducibility:** every run records the dataset hash, each config's hash
 (model + params + prompt text), the git commit, and a timestamp. Temperature
-defaults to 0. Responses are cached on `(config_hash, example_id)`, so a
-re-run with the same dataset and config is free and returns the same result.
+defaults to 0 for OpenAI and Ollama configs — the Anthropic Messages API no
+longer accepts a `temperature` parameter at all, so Anthropic configs are
+only as reproducible as Anthropic's own (undocumented) sampling defaults.
+Responses are cached on `(config_hash, example_id)`, so a re-run with the
+same dataset and config is free and returns the same result regardless.
 
 **Reliability:** provider calls retry up to 3 times with exponential backoff;
 a call that still fails is recorded as an error row (counted as wrong) rather
