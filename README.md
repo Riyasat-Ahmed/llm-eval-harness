@@ -38,7 +38,7 @@ model with a basic one — `anthropic_small_fewshot` hits 93.0% accuracy,
 ```bash
 git clone <this-repo>
 cd "LLM Comparison"
-uv sync --extra dev --extra dashboard
+uv sync --extra dev
 
 cp .env.example .env
 # edit .env and add OPENAI_API_KEY and/or ANTHROPIC_API_KEY
@@ -156,7 +156,7 @@ than stopping the run.
 ## Development
 
 ```bash
-uv sync --extra dev --extra dashboard
+uv sync --extra dev
 uv run pytest -q
 uv run ruff check .
 ```

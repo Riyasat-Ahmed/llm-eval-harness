@@ -260,20 +260,18 @@ dependencies = [
     { name = "anthropic" },
     { name = "httpx" },
     { name = "openai" },
+    { name = "pandas" },
+    { name = "plotly" },
     { name = "pydantic" },
     { name = "python-dotenv" },
     { name = "pyyaml" },
     { name = "rich" },
+    { name = "streamlit" },
     { name = "tenacity" },
     { name = "typer" },
 ]
 
 [package.optional-dependencies]
-dashboard = [
-    { name = "pandas" },
-    { name = "plotly" },
-    { name = "streamlit" },
-]
 dev = [
     { name = "pytest" },
     { name = "pytest-asyncio" },
@@ -285,8 +283,8 @@ requires-dist = [
     { name = "anthropic", specifier = ">=0.34" },
     { name = "httpx", specifier = ">=0.27" },
     { name = "openai", specifier = ">=1.40" },
-    { name = "pandas", marker = "extra == 'dashboard'", specifier = ">=2.2" },
-    { name = "plotly", marker = "extra == 'dashboard'", specifier = ">=5.23" },
+    { name = "pandas", specifier = ">=2.2" },
+    { name = "plotly", specifier = ">=5.23" },
     { name = "pydantic", specifier = ">=2.7" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.3" },
     { name = "pytest-asyncio", marker = "extra == 'dev'", specifier = ">=0.24" },
@@ -294,11 +292,11 @@ requires-dist = [
     { name = "pyyaml", specifier = ">=6.0" },
     { name = "rich", specifier = ">=13.7" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.6" },
-    { name = "streamlit", marker = "extra == 'dashboard'", specifier = ">=1.38" },
+    { name = "streamlit", specifier = ">=1.38" },
     { name = "tenacity", specifier = ">=8.3" },
     { name = "typer", specifier = ">=0.12" },
 ]
-provides-extras = ["dashboard", "dev"]
+provides-extras = ["dev"]
 
 [[package]]
 name = "h11"
